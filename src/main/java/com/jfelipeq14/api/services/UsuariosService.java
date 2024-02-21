@@ -20,4 +20,17 @@ public class UsuariosService {
     public void deleteUsuario(Usuarios usuario) {
         usuariosRepository.deleteById(usuario.getId());
     }
+
+    public void getUsuarioById(int id) {
+        System.out.println(usuariosRepository.findById(id));
+    }
+
+    public void updateUsuario(Integer id, Usuarios usuario) {
+        var exist = usuariosRepository.existsById(id);
+        if (exist) {
+            usuariosRepository.save(usuario);
+        }
+
+    }
+
 }
